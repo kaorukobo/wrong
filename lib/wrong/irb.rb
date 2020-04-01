@@ -4,9 +4,9 @@ if defined? IRB
       alias :original_evaluate :evaluate
       attr_reader :all_lines
 
-      def evaluate(line, line_no)
+      def evaluate(line, line_no, *rest_args)
         (@all_lines ||= "") <<line
-        original_evaluate line, line_no
+        original_evaluate line, line_no, *rest_args
       end
     end
   end
